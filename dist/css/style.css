@@ -18,7 +18,7 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
       rgba(5, 40, 5, 0.8) 0%,   /* top: less transparent (80%) */
       rgba(5, 40, 5, 0.7) 100%  /* bottom: more transparent (70%) */
     ),
-    url("../src/img/SVG-Banner1.jpg");
+    url("../../src/img/SVG-Banner1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
