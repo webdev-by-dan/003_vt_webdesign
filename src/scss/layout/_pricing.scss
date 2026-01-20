@@ -1,6 +1,7 @@
 .pricing {
     position: relative;
     overflow: hidden;
+    text-align: center;
 
     &::before {
         content: '';
@@ -16,7 +17,11 @@
     }
 
     .section-title {
-        margin-bottom: 48px;
+        margin-bottom: 24px;
+    }
+
+    .section-paragraph {
+        margin-bottom: 24px !important;
     }
 }
 
@@ -101,8 +106,12 @@
             transform: skewY(-12deg);
         }
 
-        .section-title {
-            margin-bottom: 64px;
-        }
+            .section-title {
+                margin-bottom: 24px;
+            }
+
+            .section-paragraph {
+                margin-bottom: 24px !important;
+            }
     }
 }

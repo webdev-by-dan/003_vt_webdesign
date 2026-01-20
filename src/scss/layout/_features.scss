@@ -1,7 +1,11 @@
 .features {
 
     .section-title {
-        margin-bottom: 48px;
+        margin-bottom: 24px;
+    }
+
+    .section-paragraph {
+        margin-bottom: 24px !important;
     }
 }
 
@@ -56,7 +60,11 @@
     .features {
 
         .section-title {
-            margin-bottom: 56px;
+            margin-bottom: 24px;
+        }
+
+        .section-paragraph {
+            margin-bottom: 24px;
         }
 
         .section-inner {
@@ -64,4 +72,15 @@
             padding-bottom: 64px;
         }
     }
+
+}
+
+@include media( '<medium' ) {
+
+    .feature {
+
+        max-width: 90vw;
+        width:80%;
+    }
+
 }

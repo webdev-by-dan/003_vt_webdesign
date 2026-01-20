@@ -229,3 +229,45 @@ template {
 [hidden] {
   display: none;
 }
+
+:root{
+  --vt-green: #2E7D32;
+  --vt-green-2: #63B35D;
+}
+
+/* Add a little “brand pop” without touching your SCSS build */
+.kicker,
+.section-title,
+.text-primary { color: var(--vt-green) !important; }
+
+.button.button-primary { background: var(--vt-green) !important; }
+.button.button-secondary { background: var(--vt-green-2) !important; }
+
+/* Meet Dan row: image left, text right, left-aligned */
+.feature-extended.meet-dan {
+  align-items: center;
+}
+.feature-extended.meet-dan .feature-extended-body {
+  text-align: left !important;
+}
+@include media( '<medium' ) {
+
+  .feature-extended.meet-dan .feature-extended-body {
+    text-align: center !important;
+  }
+
+}
+.meet-dan__photo {
+  width: 360px;
+  max-width: 100%;
+  border-radius: 16px;
+  display: block;
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+
+/* Make section headings a little more “highlighted” */
+.section-title {
+  display: inline-block;
+  padding-bottom: 6px;
+  border-bottom: 3px solid rgba(99,179,93,.55);
+}
