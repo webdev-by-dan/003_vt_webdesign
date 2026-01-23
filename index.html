@@ -40,16 +40,23 @@
             </h1>
           </div>
 
-          <!-- ✅ Nav: Past Work / Pricing / Contact (contact = white bg, green text) -->
-          <ul class="header-links list-reset m-0">
-            <li><a href="#past-work">Past Work</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li>
-              <a class="button button-sm button-shadow nav-contact-cta" href="#contact">
-                Contact
-              </a>
-            </li>
-          </ul>
+          <!-- ✅ Header Nav -->
+          <nav class="site-nav" aria-label="Primary">
+            <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false">
+              <span class="nav-toggle__icon" aria-hidden="true"></span>
+              <span class="sr-only">Menu</span>
+            </button>
+
+            <ul id="primary-nav" class="header-links list-reset m-0" data-collapsed="true">
+              <li><a href="#past-work">Past Work</a></li>
+              <li><a href="#pricing">Pricing</a></li>
+              <li>
+                <a class="button button-sm button-shadow nav-contact-cta" href="#contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
 
         </div>
       </div>
