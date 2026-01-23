@@ -1552,6 +1552,48 @@ label {
   border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
+/* ✅ ensure the header is a top stacking context above the hero content */
+.site-header {
+  position: relative;
+  z-index: 50; /* higher than hero content */
+}
+
+.site-header-inner {
+  position: relative;
+  z-index: 60; /* nav row above header background */
+}
+
+/* ✅ mobile dropdown panel always on top */
+@media (max-width: 640px) {
+  .site-nav {
+    position: relative; /* anchor absolute dropdown */
+    z-index: 999; /* beats hero text */
+  }
+  .header-links {
+    z-index: 1000; /* the panel itself */
+  }
+}
+/* ✅ mobile: bring header content closer to top + align logo with hamburger */
+@media (max-width: 640px) {
+  .site-header {
+    padding: 12px 0; /* was 24px 0 */
+  }
+  .site-header-inner {
+    align-items: center;
+    min-height: 44px; /* same as hamburger button height */
+  }
+  .site-logo-text {
+    display: inline-flex;
+    align-items: center; /* align baseline -> center for perfect Y match */
+    line-height: 1;
+    margin-top: 0; /* ensure nothing pushes it down */
+  }
+  /* ensure the hamburger is exactly 44px tall (matches min-height) */
+  .nav-toggle {
+    height: 44px;
+    width: 44px;
+  }
+}
 /*--------------------------------------------------------------
 # Hero
 --------------------------------------------------------------*/
