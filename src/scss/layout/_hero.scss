@@ -29,6 +29,10 @@
 }
 
 @include media('<medium') {
+      .hero {
+    padding-top: 28px;
+  }
+
     .B1 {
         margin-bottom: 4px !important;
     }
