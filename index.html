@@ -26,7 +26,27 @@
 </head>
 
 <body class="is-boxed has-animations">
+
+  <svg width="0" height="0" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs>
+      <!-- Smooth wave along the bottom edge -->
+      <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
+        <path d="
+          M 0 0
+          H 1
+          V 0.88
+          C 0.92 0.90, 0.82 0.96, 0.70 0.95
+          C 0.58 0.94, 0.48 0.98, 0.36 0.95
+          C 0.24 0.92, 0.12 0.88, 0 0.92
+          Z
+        " />
+      </clipPath>
+    </defs>
+  </svg>
+
   <div class="body-wrap boxed-container">
+
+    <section class="highlight-box"></section>
 
      <header class="site-header">
       <div class="container">
@@ -80,8 +100,8 @@
             </p>
 
             <p class="hero-cta is-revealing">
-              <a class="button button-secondary button-shadow B1" href="#pricing">See pricing</a>
-              <a class="button button-primary button-shadow" href="#contact" style="margin-left: 10px;">Get a free quick audit</a>
+              <a class="button button-secondary button-shadow B1 rm" href="#pricing">See pricing</a>
+              <a class="button button-primary button-shadow" href="#contact" style="margin-left: 10px;">Let's chat</a>
             </p>
 
             <div class="hero-media hero-slider" aria-label="Homepage preview">

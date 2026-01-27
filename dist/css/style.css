@@ -1251,6 +1251,7 @@ label {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
+/* ✅ Smooth wave using SVG clipPath (no choppy polygon points) */
 .site-header {
   position: relative;
   padding: 24px 0;
@@ -1263,9 +1264,11 @@ label {
   width: 100%;
   height: 500px;
   transform-origin: 0;
-  transform: skewY(-12deg);
+  transform: skewY(0deg);
   /* Dark green overlay + banner image */
   background-image: linear-gradient(to bottom, rgba(0, 74, 10, 0.9) 0%, rgba(0, 40, 5, 0.6) 100%), url("../img/SVG-Banner1.jpg");
+  /* ✅ Smooth wave (define the SVG <clipPath id="wave-clip"> once in your HTML) */
+  clip-path: url(#wave-clip);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1275,6 +1278,62 @@ label {
   .site-header::before {
     height: 640px;
   }
+}
+
+/* Make sure there is a stacking context for the whole page wrapper */
+.body-wrap {
+  position: relative;
+}
+
+/* 1) ✅ Green layer at the very bottom */
+.highlight-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 500px;
+  transform-origin: 0;
+  transform: skewY(0deg);
+  clip-path: url(#wave-clip);
+  transform: translateY(12px);
+  background: #2E7D32;
+  z-index: 0; /* bottom */
+  pointer-events: none;
+}
+
+/* 2) ✅ Header image/overlay layer above the green */
+.site-header {
+  position: relative;
+  z-index: 1; /* creates stacking context above highlight-box */
+}
+
+.site-header::before {
+  z-index: 0; /* inside .site-header, keep background behind content */
+  pointer-events: none;
+}
+
+/* IMPORTANT: pseudo-elements need positioning for z-index to apply */
+.site-header::before {
+  position: absolute; /* you already have this; keep it explicit */
+}
+
+/* 3) ✅ Header content above the ::before image layer */
+.site-header-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* match your desktop height */
+@media (min-width: 641px) {
+  .highlight-box {
+    height: 640px;
+  }
+}
+.hero,
+.hero .container-sm,
+.hero .hero-inner {
+  position: relative;
+  z-index: 2;
 }
 
 .site-header-inner {
@@ -1586,6 +1645,19 @@ label {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+}
+@media (max-width: 640px) {
+  .rm {
+    display: none !important;
+  }
+}
+@media (max-width: 640px) {
+  .hero-media, .hero-slider {
+    background: transparent !important;
+  }
+  .hero-media img {
+    margin-top: 48px !important;
   }
 }
 /*--------------------------------------------------------------
