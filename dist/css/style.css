@@ -1251,11 +1251,27 @@ label {
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-/* ✅ Smooth wave using SVG clipPath (no choppy polygon points) */
+/* =====================================================
+   BASE
+===================================================== */
+body {
+  background: #ffffff; /* white below hero */
+}
+
+.body-wrap {
+  position: relative;
+}
+
+/* =====================================================
+   HEADER BACKGROUND (HERO IMAGE)
+===================================================== */
 .site-header {
   position: relative;
   padding: 24px 0;
+  z-index: 2;
 }
+
+/* hero background layer */
 .site-header::before {
   content: "";
   position: absolute;
@@ -1263,72 +1279,23 @@ label {
   left: 0;
   width: 100%;
   height: 500px;
-  transform-origin: 0;
-  transform: skewY(0deg);
-  /* Dark green overlay + banner image */
-  background-image: linear-gradient(to bottom, rgba(0, 74, 10, 0.9) 0%, rgba(0, 40, 5, 0.6) 100%), url("../img/SVG-Banner1.jpg");
-  /* ✅ Smooth wave (define the SVG <clipPath id="wave-clip"> once in your HTML) */
-  clip-path: url(#wave-clip);
+  background-image: linear-gradient(to bottom, rgba(0, 74, 10, 0.92) 0%, rgba(0, 40, 5, 0.65) 100%), url("../img/SVG-Banner1.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-blend-mode: multiply;
+  z-index: 0;
 }
-@media (min-width: 641px) {
+
+@media (min-width: 768px) {
   .site-header::before {
-    height: 640px;
+    height: 720px;
+    z-index: 1;
   }
 }
-
-/* Make sure there is a stacking context for the whole page wrapper */
-.body-wrap {
-  position: relative;
-}
-
-/* 1) ✅ Green layer at the very bottom */
-.highlight-box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 500px;
-  transform-origin: 0;
-  transform: skewY(0deg);
-  clip-path: url(#wave-clip);
-  transform: translateY(12px);
-  background: #2E7D32;
-  z-index: 0; /* bottom */
-  pointer-events: none;
-}
-
-/* 2) ✅ Header image/overlay layer above the green */
-.site-header {
-  position: relative;
-  z-index: 1; /* creates stacking context above highlight-box */
-}
-
-.site-header::before {
-  z-index: 0; /* inside .site-header, keep background behind content */
-  pointer-events: none;
-}
-
-/* IMPORTANT: pseudo-elements need positioning for z-index to apply */
-.site-header::before {
-  position: absolute; /* you already have this; keep it explicit */
-}
-
-/* 3) ✅ Header content above the ::before image layer */
-.site-header-inner {
-  position: relative;
-  z-index: 2;
-}
-
-/* match your desktop height */
-@media (min-width: 641px) {
-  .highlight-box {
-    height: 640px;
-  }
-}
+/* =====================================================
+   HERO CONTENT
+===================================================== */
 .hero,
 .hero .container-sm,
 .hero .hero-inner {
@@ -1336,66 +1303,64 @@ label {
   z-index: 2;
 }
 
+/* =====================================================
+   ✨ WAVES (BOTTOM + FLIPPED — CLEAN VERSION)
+===================================================== */
+/* anchored to bottom of header instead of using top math */
+.hero-waves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 650px;
+  width: 100%;
+  height: 70px;
+  transform-origin: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* =====================================================
+   PARALLAX ANIMATION (UNCHANGED)
+===================================================== */
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  mix-blend-mode: multiply;
+}
+
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+
+@keyframes move-forever {
+  0% {
+    transform: translate3d(-90px, 0, 0);
+  }
+  100% {
+    transform: translate3d(85px, 0, 0);
+  }
+}
+/* =====================================================
+   NAV / HEADER LAYERING
+===================================================== */
 .site-header-inner {
-  position: relative; /* keeps content above triangle */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-links {
-  display: inline-flex;
-}
-.header-links li {
-  display: inline-flex;
-}
-.header-links a:not(.button) {
-  font-size: 13px;
-  line-height: 18px;
-  letter-spacing: 0px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.header-links a:not(.button):hover, .header-links a:not(.button):active {
-  color: #FFF;
-}
-.header-links a:not(.button) {
-  line-height: 16px;
-  padding: 8px 24px;
-}
-
-/* Text logo style (header + footer) */
-.site-logo-text {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.5rem;
-  font-weight: 900 !important;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  text-decoration: none;
-  color: #fff !important; /* header is on dark hero */
-  font-size: 1.05rem !important;
-  transform: translateY(-9px);
-}
-
-.site-logo-text .logo-vt {
-  color: #fff;
-  opacity: 0.9;
-  font-weight: 800;
-}
-
-.site-logo-text .logo-wd {
-  color: #fff;
-  font-weight: 900;
-}
-
-/* ================================
-   NAV BAR (just the nav polish)
-================================ */
-.site-header-inner {
-  position: relative; /* keeps content above triangle */
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1405,259 +1370,155 @@ label {
 .header-links {
   display: inline-flex;
   align-items: center;
-  gap: 10px; /* nicer spacing than padding-only */
-  margin: 0;
-  padding: 0;
+  gap: 10px;
   list-style: none;
 }
-.header-links li {
-  display: inline-flex;
-}
+
 .header-links a:not(.button) {
-  font-size: 13px;
-  line-height: 18px;
-  letter-spacing: 0px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.8);
-  text-transform: uppercase;
-  text-decoration: none;
-}
-.header-links a:not(.button):hover, .header-links a:not(.button):active {
-  color: #FFF;
-}
-.header-links a:not(.button) {
-  /* ✅ more professional pill links */
-  line-height: 1;
   padding: 10px 14px;
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  transition: background 160ms ease, transform 160ms ease, color 160ms ease, box-shadow 160ms ease;
 }
+
 .header-links a:not(.button):hover {
   background: rgba(255, 255, 255, 0.12);
-  color: #fff;
-  transform: translateY(-1px);
-}
-.header-links a:not(.button):focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 179, 93, 0.35);
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-}
-.header-links {
-  /* ✅ make the Contact button look like a clean nav CTA */
-}
-.header-links a.button {
-  border-radius: 999px;
-  padding: 10px 16px;
-  line-height: 1;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
-}
-.header-links a.button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26);
-}
-.header-links a.button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 179, 93, 0.35), 0 14px 30px rgba(0, 0, 0, 0.2);
-}
-.header-links {
-  /* ✅ mobile: wrap nicely instead of overflowing */
-}
-@media (max-width: 640px) {
-  .header-links {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-  .header-links a:not(.button) {
-    padding: 9px 12px;
-  }
-  .header-links a.button {
-    padding: 9px 14px;
-  }
 }
 
-.nav-contact-cta {
-  color: #2E7D32 !important;
+/* =====================================================
+   REMOVE OLD GREEN BLOCK
+===================================================== */
+.highlight-box {
+  display: none;
 }
 
-@media (min-width: 641px) {
-  .nav-contact-cta {
-    color: #2E7D32 !important;
-  }
-}
-/* ================================
-   MOBILE DROPDOWN NAV
-================================ */
-.site-nav {
-  position: relative;
-}
-
-/* Hamburger button */
-.nav-toggle {
-  display: none; /* shown on mobile via media query */
-  appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-radius: 999px;
-  padding: 10px 14px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  transition: transform 160ms ease, background 160ms ease, box-shadow 160ms ease;
-}
-.nav-toggle:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.14);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.26);
-}
-.nav-toggle:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(99, 179, 93, 0.35), 0 14px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Simple burger icon */
-.nav-toggle__icon {
-  width: 18px;
-  height: 12px;
-  position: relative;
-  display: inline-block;
-}
-.nav-toggle__icon::before, .nav-toggle__icon::after {
-  content: "";
-  position: absolute;
+/* =====================================================
+   📱 MOBILE HEADER + NAV FIX
+   (clean, fixed, white logo/nav, responsive waves)
+===================================================== */
+/* make header fixed + overlay hero */
+.site-header {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.92);
-  border-radius: 2px;
-  transition: transform 160ms ease, top 160ms ease, opacity 160ms ease;
-}
-.nav-toggle__icon::before {
-  top: 2px;
-}
-.nav-toggle__icon::after {
-  top: 8px;
+  z-index: 50;
+  padding: 14px 0;
+  background: linear-gradient(to bottom, rgba(0, 40, 5, 0.85), rgba(0, 40, 5, 0.55));
+  backdrop-filter: blur(6px);
 }
 
-/* When open: turn burger into an X */
-.site-header.is-nav-open .nav-toggle__icon::before {
-  top: 5px;
-  transform: rotate(45deg);
-}
-.site-header.is-nav-open .nav-toggle__icon::after {
-  top: 5px;
-  transform: rotate(-45deg);
+/* prevent content hiding under fixed header */
+main {
+  margin-top: 80px;
 }
 
-/* Desktop: keep your existing inline links */
-@media (min-width: 641px) {
-  .nav-toggle {
-    display: none;
+/* =====================================================
+   LOGO (always white)
+===================================================== */
+.site-logo-text,
+.logo-vt,
+.logo-wd {
+  color: #ffffff !important;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+/* =====================================================
+   NAV LAYOUT
+===================================================== */
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* nav links */
+.header-links a:not(.button) {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* tighter spacing on mobile */
+@media (max-width: 768px) {
+  .header-links {
+    gap: 6px;
   }
-  .site-nav {
+  .header-links a:not(.button) {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+/* =====================================================
+   HAMBURGER MENU (mobile)
+===================================================== */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 600;
+}
+
+/* mobile collapse */
+@media (max-width: 768px) {
+  .nav-toggle {
     display: block;
   }
-}
-/* Mobile: dropdown panel */
-@media (max-width: 640px) {
-  .nav-toggle {
-    display: inline-flex;
-  }
-  /* Hide inline links by default on mobile */
   .site-nav {
     position: absolute;
-    left: 0;
+    top: 100%;
     right: 0;
-    top: calc(100% + 10px);
-    z-index: 50;
-    opacity: 0;
-    transform: translateY(-8px);
-    pointer-events: none;
-    transition: opacity 160ms ease, transform 160ms ease;
-  }
-  /* Full-width white dropdown container */
-  .site-nav .header-links {
     width: 100%;
-    display: flex;
+    background: rgba(0, 40, 5, 0.95);
+    padding: 16px;
+    display: none;
+  }
+  .site-nav.is-open {
+    display: block;
+  }
+  .header-links {
     flex-direction: column;
-    gap: 6px;
-    margin: 0;
-    padding: 12px;
-    background: #fff;
-    border-radius: 14px;
-    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.22);
-  }
-  /* Links become full-width rows */
-  .site-nav .header-links li {
-    display: block;
-    width: 100%;
-  }
-  .site-nav .header-links a:not(.button) {
-    width: 100%;
-    display: block;
-    color: #1f2937; /* dark text on white */
-    padding: 12px 12px;
-    border-radius: 12px;
-    text-decoration: none;
-    transition: background 160ms ease, color 160ms ease, box-shadow 160ms ease;
-  }
-  .site-nav .header-links a:not(.button):hover {
-    background: rgba(46, 125, 50, 0.08); /* soft green highlight */
-    color: #145a23;
-  }
-  .site-nav .header-links a:not(.button):focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(99, 179, 93, 0.35);
-    background: rgba(46, 125, 50, 0.1);
-  }
-  .site-nav .header-links .nav-contact-cta {
-    width: 100%;
-    display: flex; /* ✅ key */
-    align-items: center; /* ✅ vertical centering */
-    justify-content: center; /* ✅ horizontal centering */
-    background: rgba(46, 125, 50, 0.3) !important;
-    color: black !important;
-    border: 1px solid rgba(46, 125, 50, 0.3) !important;
-    box-shadow: none;
-    padding: 12px;
-    border-radius: 12px;
-    line-height: 1; /* prevents odd font metrics */
-  }
-  .site-nav .header-links .nav-contact-cta:hover {
-    background: rgba(46, 125, 50, 0.08) !important;
-    transform: none;
-    box-shadow: none;
-  }
-  .site-nav .header-links .nav-contact-cta:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(99, 179, 93, 0.35);
-  }
-  /* Open state */
-  .site-header.is-nav-open .site-nav {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    align-items: flex-start;
+    gap: 10px;
   }
 }
-@media (max-width: 640px) {
-  .rm {
-    display: none !important;
+/* =====================================================
+   HERO SPACING (account for fixed header)
+===================================================== */
+.hero {
+  padding-top: 60px;
+}
+
+/* =====================================================
+   🌊 WAVES — RESPONSIVE FIX
+===================================================== */
+/* remove top:650px hack */
+.hero-waves {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: auto;
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* smaller waves on phones */
+@media (max-width: 768px) {
+  .hero-waves {
+    height: 45px;
   }
 }
-@media (max-width: 640px) {
-  .hero-media, .hero-slider {
-    background: transparent !important;
-  }
-  .hero-media img {
-    margin-top: 48px !important;
+/* =====================================================
+   PARALLAX PERFORMANCE TWEAK (mobile smoother)
+===================================================== */
+@media (max-width: 768px) {
+  .parallax > use {
+    animation-duration: 14s;
   }
 }
 /*--------------------------------------------------------------

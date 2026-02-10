@@ -48,9 +48,10 @@
 
     <section class="highlight-box"></section>
 
-     <header class="site-header">
+    <header class="site-header">
       <div class="container">
         <div class="site-header-inner">
+
           <div class="brand header-brand">
             <h1 class="m-0">
               <a href="#" class="site-logo-text" aria-label="VT Web Design home">
@@ -60,13 +61,13 @@
             </h1>
           </div>
 
-          <!-- ✅ Mobile nav toggle (shows on mobile only) -->
+          <!-- Mobile nav toggle -->
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             <span class="nav-toggle__label">Menu</span>
             <span class="nav-toggle__icon" aria-hidden="true"></span>
           </button>
 
-          <!-- ✅ Nav (desktop inline, mobile dropdown) -->
+          <!-- Nav -->
           <nav id="site-nav" class="site-nav" aria-label="Primary">
             <ul class="header-links list-reset m-0">
               <li><a href="#past-work">Past Work</a></li>
@@ -81,6 +82,35 @@
 
         </div>
       </div>
+      
+    <!-- Flipped animated waves between hero and white content -->
+    <svg class="hero-waves"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 24 150 28"
+        preserveAspectRatio="none">
+
+      <defs>
+        <path id="gentle-wave"
+          d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+      </defs>
+
+      <g class="parallax">
+
+        <!-- strongest (touching hero) -->
+        <use href="#gentle-wave" x="48" y="7" fill="#ffffff" opacity="1" />
+
+        <!-- mid -->
+        <use href="#gentle-wave" x="48" y="5" fill="#ffffff" opacity="0.4" />
+
+        <!-- light -->
+        <use href="#gentle-wave" x="48" y="3" fill="#ffffff" opacity="0.2" />
+
+        <!-- gentlest (barely visible) -->
+        <use href="#gentle-wave" x="48" y="0" fill="#ffffff" opacity="0.1" />
+
+      </g>
+    </svg>
+  
     </header>
 
     <main>
@@ -109,6 +139,7 @@
             </div>
           </div>
         </div>
+
       </section>
 
       <!-- CLIENTS (optional: swap logos later, left as-is structurally) -->
