@@ -1,41 +1,300 @@
-/* =====================================================
-   BASE
-===================================================== */
+/* ======================================================
+   ROOT
+====================================================== */
 
-body {
-  background: #ffffff; /* white below hero */
+:root {
+  --vt-green: #2E7D32;
+
+  --nav-height: 56px;
+  --nav-gap: 18px;
+  --nav-radius: 24px;
+
+  --nav-text: #1f2937;
+
+  --page-bg: #f5f6f7; /* light gray behind nav */
 }
 
+
+
+/* ======================================================
+   BASE LAYOUT
+====================================================== */
+
+/* page background is gray now */
+html,
+body {
+  background: var(--page-bg);
+}
+
+/* remove any white strip behind nav */
 .body-wrap {
   position: relative;
+  background: transparent;
 }
 
 
-/* =====================================================
-   HEADER BACKGROUND (HERO IMAGE)
-===================================================== */
+
+/* ======================================================
+   NAV BAR (FLOATING CARD STYLE)
+====================================================== */
+
+.site-nav {
+  position: fixed;
+
+  top: var(--nav-gap);
+  left: var(--nav-gap);
+  right: var(--nav-gap);
+
+  height: var(--nav-height);
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #fff;
+
+  border-radius: var(--nav-radius);
+
+  border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+
+  z-index: 10000;
+}
+
+/* ======================================================
+   HERO ROUNDED TOP CORNERS
+====================================================== */
+
+.hero {
+  overflow: hidden; /* clip hero background */
+}
+
+
+
+/* ======================================================
+   LOGO
+====================================================== */
+
+.site-logo-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .4rem;
+
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+
+  text-decoration: none;
+  color: var(--nav-text);
+}
+
+.logo-vt {
+  color: var(--vt-green);
+  font-weight: 900;
+}
+
+.logo-wd {
+  font-weight: 800;
+}
+
+
+
+/* ======================================================
+   NAV LINKS
+====================================================== */
+
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+.header-links a:not(.button) {
+  display: inline-flex;
+  align-items: center;
+
+  height: 34px;
+  padding: 0 12px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: var(--nav-text);
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition: background .15s ease, color .15s ease;
+}
+
+.header-links a:not(.button):hover {
+  background: rgba(46,125,50,.08);
+  color: var(--vt-green);
+}
+
+
+
+/* ======================================================
+   CTA BUTTON (cleaner + more professional)
+====================================================== */
+
+/* ======================================================
+   CONTACT LINK (same as other links but filled green)
+====================================================== */
+
+.nav-contact-cta {
+  display: inline-flex;
+  align-items: center;
+
+  height: 34px;
+  padding: 0 12px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  border-radius: 8px;
+
+  background: var(--vt-green);
+  color: #fff !important;
+
+  text-decoration: none;
+
+  transition: filter .15s ease, transform .12s ease;
+}
+
+.nav-contact-cta:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+
+
+
+/* ======================================================
+   HAMBURGER (professional minimal style)
+====================================================== */
+
+.nav-toggle {
+  appearance: none;
+
+  display: none;
+
+  width: 34px;
+  height: 34px;
+
+  border-radius: 8px;
+
+  border: 1px solid rgba(0,0,0,.08);
+  background: #fff;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: background .15s ease;
+}
+
+.nav-toggle:hover {
+  background: rgba(0,0,0,.05);
+}
+
+
+/* burger icon lines */
+.nav-toggle__icon,
+.nav-toggle__icon::before,
+.nav-toggle__icon::after {
+  width: 16px;
+  height: 2px;
+  background: var(--nav-text);
+  display: block;
+  content: '';
+  border-radius: 2px;
+}
+
+.nav-toggle__icon::before {
+  margin-bottom: 4px;
+}
+
+.nav-toggle__icon::after {
+  margin-top: 4px;
+}
+
+
+
+/* ======================================================
+   MOBILE NAV
+====================================================== */
+
+@media (max-width: 768px) {
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .header-links {
+    display: none;
+  }
+
+  body.is-nav-open .header-links {
+    display: flex;
+
+    position: absolute;
+    top: calc(var(--nav-height) + 10px);
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    gap: 6px;
+
+    padding: 12px;
+
+    background: #fff;
+    border-radius: 14px;
+
+    box-shadow: 0 16px 40px rgba(0,0,0,.18);
+  }
+
+  body.is-nav-open .header-links a {
+    width: 100%;
+    height: 42px;
+    justify-content: center;
+  }
+
+  body.is-nav-open .nav-contact-cta {
+    width: 100%;
+  }
+}
+
+
+
+/* ======================================================
+   HEADER / HERO BACKGROUND
+====================================================== */
 
 .site-header {
   position: relative;
   padding: 24px 0;
-  z-index: 2;
 }
 
-/* hero background layer */
 .site-header::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  inset: 0 auto auto 0;
 
-  height: 500px;
+  width: 100%;
+  height: 600px;
 
   background-image:
     linear-gradient(
       to bottom,
-      rgba(0,74,10,.92) 0%,
-      rgba(0,40,5,.65) 100%
+      rgba(0,74,10,.92),
+      rgba(0,40,5,.65)
     ),
     url("../img/SVG-Banner1.jpg");
 
@@ -50,14 +309,14 @@ body {
 @media (min-width: 768px) {
   .site-header::before {
     height: 720px;
-    z-index: 1;
   }
 }
 
 
-/* =====================================================
-   HERO CONTENT
-===================================================== */
+
+/* ======================================================
+   HERO CONTENT LAYERING
+====================================================== */
 
 .hero,
 .hero .container-sm,
@@ -67,11 +326,11 @@ body {
 }
 
 
-/* =====================================================
-   ✨ WAVES (BOTTOM + FLIPPED — CLEAN VERSION)
-===================================================== */
 
-/* anchored to bottom of header instead of using top math */
+/* ======================================================
+   WAVES
+====================================================== */
+
 .hero-waves {
   position: absolute;
   left: 0;
@@ -81,41 +340,25 @@ body {
   width: 100%;
   height: 70px;
 
-  transform-origin: center;
-
   z-index: 2;
   pointer-events: none;
 }
 
 
-/* =====================================================
-   PARALLAX ANIMATION (UNCHANGED)
-===================================================== */
+
+/* ======================================================
+   PARALLAX
+====================================================== */
 
 .parallax > use {
   animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
   mix-blend-mode: multiply;
 }
 
-.parallax > use:nth-child(1){
-  animation-delay:-2s;
-  animation-duration:7s;
-}
-
-.parallax > use:nth-child(2){
-  animation-delay:-3s;
-  animation-duration:10s;
-}
-
-.parallax > use:nth-child(3){
-  animation-delay:-4s;
-  animation-duration:13s;
-}
-
-.parallax > use:nth-child(4){
-  animation-delay:-5s;
-  animation-duration:20s;
-}
+.parallax > use:nth-child(1){ animation-delay:-2s; animation-duration:7s; }
+.parallax > use:nth-child(2){ animation-delay:-3s; animation-duration:10s; }
+.parallax > use:nth-child(3){ animation-delay:-4s; animation-duration:13s; }
+.parallax > use:nth-child(4){ animation-delay:-5s; animation-duration:20s; }
 
 @keyframes move-forever {
   0%   { transform: translate3d(-90px,0,0); }
@@ -123,41 +366,10 @@ body {
 }
 
 
-/* =====================================================
-   NAV / HEADER LAYERING
-===================================================== */
 
-.site-header-inner {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.header-links {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  list-style: none;
-}
-
-.header-links a:not(.button) {
-  padding: 10px 14px;
-  border-radius: 999px;
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-}
-
-.header-links a:not(.button):hover {
-  background: rgba(255,255,255,0.12);
-}
-
-
-/* =====================================================
-   REMOVE OLD GREEN BLOCK
-===================================================== */
+/* ======================================================
+   CLEANUPS
+====================================================== */
 
 .highlight-box {
   display: none;
@@ -165,3 +377,17 @@ body {
 
 
 
+/* ======================================================
+   MOBILE HERO MEDIA FIXES
+====================================================== */
+
+@media (max-width: 768px) {
+  .hero-media {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .hero-media::before {
+    display: none !important;
+  }
+}

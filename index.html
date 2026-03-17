@@ -1,35 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+  <!-- =====================================================
+       META
+  ====================================================== -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>VT Web Design | Vermont & New England Web Design</title>
 
+
+  <!-- =====================================================
+       FONTS + STYLES
+  ====================================================== -->
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet" />
   <link rel="stylesheet" href="dist/css/style.css" />
   <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-  <link
-  rel="preload"
-  as="image"
-  href="dist/img/illustration2.jpg"
-  fetchpriority="high"
-  />
-  <link
-  rel="preload"
-  as="image"
-  href="src/img/illustration2.jpg"
-  fetchpriority="high"
-  />
+
+  <!-- =====================================================
+       PRELOAD IMAGES
+  ====================================================== -->
+  <link rel="preload" as="image" href="dist/img/illustration2.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="src/img/illustration2.jpg" fetchpriority="high" />
 
 </head>
 
+
+
 <body class="is-boxed has-animations">
 
+
+  <!-- =====================================================
+       GLOBAL NAV BAR (FIXED APP BAR)
+       Logo + Links + Mobile Toggle
+  ====================================================== -->
+  <nav id="site-nav" class="site-nav" aria-label="Primary">
+
+    <!-- Logo -->
+    <a href="#" class="site-logo-text" aria-label="VT Web Design home">
+      <span class="logo-vt">VT</span>
+      <span class="logo-wd">Web Design</span>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="header-links list-reset m-0">
+      <li><a href="#past-work">Past Work</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li>
+        <a class="nav-contact-cta" href="#contact">Contact</a>
+      </li>
+    </ul>
+
+    <!-- Mobile Toggle -->
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="nav-toggle__icon" aria-hidden="true"></span>
+    </button>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       SVG DEFINITIONS (wave clip path)
+  ====================================================== -->
   <svg width="0" height="0" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
     <defs>
-      <!-- Smooth wave along the bottom edge -->
       <clipPath id="wave-clip" clipPathUnits="objectBoundingBox">
         <path d="
           M 0 0
@@ -44,85 +86,64 @@
     </defs>
   </svg>
 
-  <div class="body-wrap boxed-container">
+
+
+  <!-- =====================================================
+       PAGE WRAPPER
+  ====================================================== -->
+  <div class="body-wrap boxed-container" style="  border-top-left-radius: 24px; border-top-right-radius: 24px;">
 
     <section class="highlight-box"></section>
 
+
+
+    <!-- =====================================================
+         HEADER (HERO BACKGROUND + WAVES ONLY)
+    ====================================================== -->
     <header class="site-header">
-      <div class="container">
-        <div class="site-header-inner">
 
-          <div class="brand header-brand">
-            <h1 class="m-0">
-              <a href="#" class="site-logo-text" aria-label="VT Web Design home">
-                <span class="logo-vt">VT</span>
-                <span class="logo-wd">Web Design</span>
-              </a>
-            </h1>
-          </div>
+      <!-- Decorative Waves -->
+      <svg class="hero-waves"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 24 150 28"
+           preserveAspectRatio="none">
 
-          <!-- Mobile nav toggle -->
-          <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-            <span class="nav-toggle__label">Menu</span>
-            <span class="nav-toggle__icon" aria-hidden="true"></span>
-          </button>
+        <defs>
+          <path id="gentle-wave"
+            d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        </defs>
 
-          <!-- Nav -->
-          <nav id="site-nav" class="site-nav" aria-label="Primary">
-            <ul class="header-links list-reset m-0">
-              <li><a href="#past-work">Past Work</a></li>
-              <li><a href="#pricing">Pricing</a></li>
-              <li>
-                <a class="button button-sm button-shadow nav-contact-cta" href="#contact">
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </nav>
+        <g class="parallax">
+          <use href="#gentle-wave" x="48" y="7" fill="#ffffff" opacity="1" />
+          <use href="#gentle-wave" x="48" y="5" fill="#ffffff" opacity="0.4" />
+          <use href="#gentle-wave" x="48" y="3" fill="#ffffff" opacity="0.2" />
+          <use href="#gentle-wave" x="48" y="0" fill="#ffffff" opacity="0.1" />
+        </g>
 
-        </div>
-      </div>
-      
-    <!-- Flipped animated waves between hero and white content -->
-    <svg class="hero-waves"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 24 150 28"
-        preserveAspectRatio="none">
+      </svg>
 
-      <defs>
-        <path id="gentle-wave"
-          d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
-      </defs>
-
-      <g class="parallax">
-
-        <!-- strongest (touching hero) -->
-        <use href="#gentle-wave" x="48" y="7" fill="#ffffff" opacity="1" />
-
-        <!-- mid -->
-        <use href="#gentle-wave" x="48" y="5" fill="#ffffff" opacity="0.4" />
-
-        <!-- light -->
-        <use href="#gentle-wave" x="48" y="3" fill="#ffffff" opacity="0.2" />
-
-        <!-- gentlest (barely visible) -->
-        <use href="#gentle-wave" x="48" y="0" fill="#ffffff" opacity="0.1" />
-
-      </g>
-    </svg>
-  
     </header>
 
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
     <main>
 
-      <!-- HERO -->
+
+
+      <!-- =================================================
+           HERO
+      ================================================== -->
       <section class="hero text-light text-center">
+
         <div class="container-sm">
           <div class="hero-inner">
-            <h1 class="hero-title h1-mobile mt-0 is-revealing hero-title-first">
-            Vermont Web Design
-          </h1>
 
+            <h1 class="hero-title h1-mobile mt-0 is-revealing hero-title-first">
+              Vermont Web Design
+            </h1>
 
             <p class="hero-paragraph is-revealing">
               I help nonprofits, local businesses, and community organizations launch fast, accessible websites that look great
@@ -134,209 +155,320 @@
               <a class="button button-primary button-shadow" href="#contact" style="margin-left: 10px;">Let's chat</a>
             </p>
 
-            <div class="hero-media hero-slider" aria-label="Homepage preview">
-              <!-- JS will inject images here (your slider) -->
-            </div>
+            <div class="hero-media hero-slider" aria-label="Homepage preview"></div>
+
           </div>
         </div>
 
       </section>
 
-      <!-- CLIENTS (optional: swap logos later, left as-is structurally) -->
+
+
+      <!-- =================================================
+           CLIENTS
+      ================================================== -->
       <section class="clients section">
         <div class="container">
           <div class="clients-inner section-inner has-top-divider">
             <div class="container-sm text-center">
-              <p class="kicker" style="margin-bottom:12px;">Built for the organizations that keep New England running</p>
+              <p class="kicker" style="margin-bottom:12px;">
+                Built for the organizations that keep New England running
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SERVICES -->
+
+
+      <!-- =================================================
+          SERVICES
+      ================================================== -->
       <section id="services" class="features section text-center">
+
         <div class="container">
           <div class="features-inner section-inner has-top-divider">
+
+            <!-- Section Header -->
             <h2 class="section-title mt-0">Our services</h2>
+
             <p class="section-paragraph" style="max-width: 760px; margin: 12px auto 0;">
-              Everything you need to launch a website that looks professional, loads fast, ranks better, and meets accessibility expectations.
+              Everything you need to launch a website that looks professional, loads fast,
+              ranks better, and meets accessibility expectations.
             </p>
 
+
+            <!-- =================================================
+                FEATURES GRID
+            ================================================== -->
             <div class="features-wrap">
 
-              <!-- Website Development -->
+
+              <!-- =========================
+                  Website Development
+              ========================== -->
               <div class="feature is-revealing">
                 <div class="feature-inner">
+
                   <div class="feature-icon" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
-                      <path d="M8 12c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v24c0 2.2-1.8 4-4 4H12c-2.2 0-4-1.8-4-4V12z"
-                            fill="rgba(99,179,93,.20)"/>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <path d="M8 12c0-2.2 1.8-4 4-4h24c2.2 0 4 1.8 4 4v24c0 2.2-1.8 4-4 4H12c-2.2 0-4-1.8-4-4V12z" fill="rgba(99,179,93,.20)"/>
                       <path d="M12 16h24M12 20h24" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round"/>
                       <path d="M18 30l-5-4 5-4M30 22l5 4-5 4" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M23 34l2-12" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                   </div>
+
                   <h4 class="feature-title h3-mobile">Website Development</h4>
+
                   <p class="text-sm">
                     Clean, fast, mobile-first websites built to be easy to maintain—perfect for nonprofits and local businesses.
                   </p>
+
                 </div>
               </div>
 
-              <!-- UI/UX Design -->
+
+              <!-- =========================
+                  UI/UX Design
+              ========================== -->
               <div class="feature is-revealing">
                 <div class="feature-inner">
+
                   <div class="feature-icon" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
-                      <path d="M10 14c0-2.2 1.8-4 4-4h20c2.2 0 4 1.8 4 4v20c0 2.2-1.8 4-4 4H14c-2.2 0-4-1.8-4-4V14z"
-                            fill="rgba(99,179,93,.20)"/>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <path d="M10 14c0-2.2 1.8-4 4-4h20c2.2 0 4 1.8 4 4v20c0 2.2-1.8 4-4 4H14c-2.2 0-4-1.8-4-4V14z" fill="rgba(99,179,93,.20)"/>
                       <path d="M16 18h16M16 24h10M16 30h14" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round"/>
                       <path d="M33 26l5 5" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round"/>
                       <path d="M31 28l2-8 6 6-8 2z" fill="var(--vt-green)"/>
                     </svg>
                   </div>
+
                   <h4 class="feature-title h3-mobile">UI/UX Design</h4>
+
                   <p class="text-sm">
                     Simple navigation, clear calls-to-action, and a design that feels “you”—so visitors quickly find what they need.
                   </p>
+
                 </div>
               </div>
 
-              <!-- SEO Optimization -->
+
+              <!-- =========================
+                  SEO Optimization
+              ========================== -->
               <div class="feature is-revealing">
                 <div class="feature-inner">
+
                   <div class="feature-icon" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
+                    <svg width="48" height="48" viewBox="0 0 48 48">
                       <circle cx="22" cy="22" r="12" fill="rgba(99,179,93,.20)"/>
                       <path d="M31 31l8 8" stroke="var(--vt-green)" stroke-width="2.5" stroke-linecap="round"/>
                       <path d="M17 23l3 3 7-8" stroke="var(--vt-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M10 38h28" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round" opacity=".6"/>
                     </svg>
                   </div>
+
                   <h4 class="feature-title h3-mobile">SEO Optimization</h4>
+
                   <p class="text-sm">
-                    Technical SEO basics done right: fast pages, clean structure, metadata, and local-friendly setup to help you get found.
+                    Technical SEO basics done right: fast pages, clean structure, metadata,
+                    and local-friendly setup to help you get found.
                   </p>
+
                 </div>
               </div>
 
-              <!-- Accessibility Guarantee -->
+
+              <!-- =========================
+                  Accessibility
+              ========================== -->
               <div class="feature is-revealing">
                 <div class="feature-inner">
+
                   <div class="feature-icon" aria-hidden="true">
-                    <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" role="img">
-                      <path d="M24 6c8 0 14 6 14 14 0 10-6 17-14 22C16 37 10 30 10 20 10 12 16 6 24 6z"
-                            fill="rgba(99,179,93,.20)"/>
+                    <svg width="48" height="48" viewBox="0 0 48 48">
+                      <path d="M24 6c8 0 14 6 14 14 0 10-6 17-14 22C16 37 10 30 10 20 10 12 16 6 24 6z" fill="rgba(99,179,93,.20)"/>
                       <path d="M18 24l4 4 8-10" stroke="var(--vt-green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                       <path d="M24 14v6" stroke="var(--vt-green)" stroke-width="2" stroke-linecap="round"/>
                       <circle cx="24" cy="14" r="2" fill="var(--vt-green)"/>
                     </svg>
                   </div>
+
                   <h4 class="feature-title h3-mobile">Accessibility Guarantee</h4>
+
                   <p class="text-sm">
-                    Accessible by default: semantic structure, keyboard navigation, and readable contrast—built for real people, not just checklists.
+                    Accessible by default: semantic structure, keyboard navigation,
+                    and readable contrast—built for real people, not just checklists.
                   </p>
+
                 </div>
               </div>
+
 
             </div>
           </div>
         </div>
       </section>
 
-      <!-- MEET DAN -->
+      <!-- =================================================
+          ABOUT / MEET DAN
+      ================================================== -->
       <section class="features-extended section">
+
         <div class="container">
           <div class="features-extended-inner section-inner has-top-divider">
 
+
+            <!-- =========================================
+                Section Header
+            ========================================== -->
             <div class="features-extended-header text-center">
               <div class="container-sm">
+
                 <h2 class="section-title mt-0">Meet Dan</h2>
+
                 <p class="section-paragraph">
-                  I’m Daniel Scheuermann — a Vermont & New England-focused web developer. I build sites that load fast, look modern,
-                  and stay easy to update, so your organization can spend more time doing the work that matters.
+                  I’m Daniel Scheuermann — a Vermont & New England-focused web developer.
+                  I build sites that load fast, look modern, and stay easy to update,
+                  so your organization can spend more time doing the work that matters.
                 </p>
+
               </div>
             </div>
 
-            <!-- Meet Dan row with photo -->
+
+            <!-- =========================================
+                Profile Row (Photo + Bio)
+            ========================================== -->
             <div class="feature-extended meet-dan">
+
+              <!-- Photo -->
               <div class="feature-extended-image is-revealing">
-                <!-- Replace this file path with your actual headshot path -->
-                <img class="meet-dan__photo" src="dist/img/Image-Dan.png" alt="Photo of Dan (Daniel Scheuermann)" loading="lazy" decoding="async" />
+                <img
+                  class="meet-dan__photo"
+                  src="dist/img/Image-Dan.png"
+                  alt="Photo of Dan (Daniel Scheuermann)"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
+
+              <!-- Copy -->
               <div class="feature-extended-body">
+
                 <h3 class="mt-0">Local-first, mission-friendly websites</h3>
+
                 <p>
-                  I work with nonprofits, small businesses, and community organizations across Vermont and New England.
-                  My goal is simple: a site you’re proud to share, that visitors can actually use, and that helps you hit your goals
-                  (donations, sign-ups, calls, bookings, volunteers—whatever matters most).
+                  I work with nonprofits, small businesses, and community organizations across Vermont
+                  and New England. My goal is simple: a site you’re proud to share, that visitors can
+                  actually use, and that helps you hit your goals (donations, sign-ups, calls,
+                  bookings, volunteers—whatever matters most).
                 </p>
+
                 <p style="margin-top: 14px;">
                   <strong style="color: var(--vt-green);">What you can expect:</strong>
                   clear timelines, straightforward communication, and a site that performs on mobile.
                 </p>
+
                 <p style="margin-top: 18px;">
                   <a class="button button-primary button-shadow" href="#contact">Let’s talk</a>
                 </p>
+
               </div>
             </div>
 
-            <!-- Keep additional extended blocks as “process” (optional but helpful content) -->
+
+            <!-- =========================================
+                Process Block 1
+            ========================================== -->
             <div class="feature-extended">
-                <div class="feature-extended-image is-revealing">
-                  <img
-                    src="dist/img/illustration1.jpg"
-                    alt="Website process overview illustration"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+
+              <div class="feature-extended-image is-revealing">
+                <img
+                  src="dist/img/illustration1.jpg"
+                  alt="Website process overview illustration"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
               <div class="feature-extended-body">
                 <h3 class="mt-0">A simple process that stays on track</h3>
+
                 <p>
-                  Quick discovery → design direction → build → launch. You’ll always know what’s next, what I need from you,
+                  Quick discovery → design direction → build → launch.
+                  You’ll always know what’s next, what I need from you,
                   and what the timeline looks like.
                 </p>
               </div>
+
             </div>
 
+
+            <!-- =========================================
+                Process Block 2
+            ========================================== -->
             <div class="feature-extended">
-                <div class="feature-extended-image is-revealing">
-                  <img
-                    src="dist/img/illustration2.jpg"
-                    alt="Website process overview illustration"
-                    loading="lazy"
-                  />
-                </div>
+
+              <div class="feature-extended-image is-revealing">
+                <img
+                  src="dist/img/illustration2.jpg"
+                  alt="Website process overview illustration"
+                  loading="lazy"
+                />
+              </div>
+
               <div class="feature-extended-body">
                 <h3 class="mt-0">Built to last (and easy to update)</h3>
+
                 <p>
-                  You’ll get clean structure, sensible components, and a site that doesn’t feel fragile. If you want ongoing help,
-                  I can also handle updates and improvements as you grow.
+                  You’ll get clean structure, sensible components, and a site that doesn’t feel fragile.
+                  If you want ongoing help, I can also handle updates and improvements as you grow.
                 </p>
               </div>
+
             </div>
+
 
           </div>
         </div>
       </section>
 
-      <!-- PRICING -->
+      <!-- =================================================
+          PRICING
+      ================================================== -->
       <section id="pricing" class="pricing section">
+
         <div class="container">
           <div class="pricing-inner section-inner has-top-divider">
+
+
+            <!-- =========================================
+                Section Header
+            ========================================== -->
             <h2 class="section-title mt-0 text-center">Pricing</h2>
+
             <p class="section-paragraph text-center" style="max-width: 760px; margin: 12px auto 0;">
-              Straightforward options for nonprofits and small businesses—choose the plan that fits your budget and timeline.
+              Straightforward options for nonprofits and small businesses—
+              choose the plan that fits your budget and timeline.
             </p>
 
+
+            <!-- =========================================
+                Pricing Tables
+            ========================================== -->
             <div class="pricing-tables-wrap">
 
-              <!-- Lump Sum -->
+
+              <!-- =========================
+                  Lump Sum
+              ========================== -->
               <div class="pricing-table is-revealing">
                 <div class="pricing-table-inner">
+
                   <div class="pricing-table-main">
+
                     <div class="pricing-table-header">
                       <div class="pricing-table-title mt-12 mb-16 text-secondary" style="color: var(--vt-green) !important;">
                         Lump Sum
@@ -345,37 +477,38 @@
                       <div class="pricing-table-price mb-24 pb-32">
                         <span class="pricing-table-price-currency h3">$</span>
                         <span class="pricing-table-price-amount h1">3,200</span>
+
                         <div style="margin-top: 10px; font-size: 0.95rem; opacity: .9;">
                           down + <strong style="color: var(--vt-green)">$50/mo</strong>
                         </div>
                       </div>
                     </div>
 
+
                     <ul class="pricing-table-features list-reset text-xs mb-56">
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>Custom design + full website build</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>SEO + speed basics included</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>Ongoing care option via $50/mo</span></li>
+                      <li>✓ Custom design + full website build</li>
+                      <li>✓ SEO + speed basics included</li>
+                      <li>✓ Ongoing care option via $50/mo</li>
                     </ul>
+
                   </div>
 
                   <div class="pricing-table-cta">
                     <a class="button button-secondary button-block" href="#contact">Start with Lump Sum</a>
                   </div>
+
                 </div>
               </div>
 
-              <!-- Monthly Plan (highlight as primary) -->
+
+              <!-- =========================
+                  Monthly Plan (Primary)
+              ========================== -->
               <div class="pricing-table is-revealing">
                 <div class="pricing-table-inner">
+
                   <div class="pricing-table-main">
+
                     <div class="pricing-table-header">
                       <div class="pricing-table-title mt-12 mb-16 text-primary" style="color: var(--vt-green) !important;">
                         Monthly Plan
@@ -384,41 +517,39 @@
                       <div class="pricing-table-price mb-24 pb-32">
                         <span class="pricing-table-price-currency h3">$</span>
                         <span class="pricing-table-price-amount h1">225</span>
+
                         <div style="margin-top: 10px; font-size: 0.95rem; opacity: .9;">
                           per month
                         </div>
                       </div>
                     </div>
 
+
                     <ul class="pricing-table-features list-reset text-xs mb-56">
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#2E7D32" fill-rule="nonzero"/></svg>
-                      </span><span>Launch a professional site without a big upfront cost</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#2E7D32" fill-rule="nonzero"/></svg>
-                      </span><span>Includes updates, small improvements, and support</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#2E7D32" fill-rule="nonzero"/></svg>
-                      </span><span>Great for ongoing growth and content changes</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#2E7D32" fill-rule="nonzero"/></svg>
-                      </span><span>Cancel anytime after launch (details in contract)</span></li>
+                      <li>✓ Launch without big upfront cost</li>
+                      <li>✓ Updates + improvements + support included</li>
+                      <li>✓ Great for ongoing growth</li>
+                      <li>✓ Cancel anytime after launch</li>
                     </ul>
+
                   </div>
 
                   <div class="pricing-table-cta">
                     <a class="button button-primary button-block" href="#contact">Choose Monthly</a>
                   </div>
+
                 </div>
               </div>
 
-              <!-- E-Commerce -->
+
+              <!-- =========================
+                  E-Commerce
+              ========================== -->
               <div class="pricing-table is-revealing">
                 <div class="pricing-table-inner">
+
                   <div class="pricing-table-main">
+
                     <div class="pricing-table-header">
                       <div class="pricing-table-title mt-12 mb-16 text-secondary" style="color: var(--vt-green) !important;">
                         E-Commerce
@@ -427,54 +558,58 @@
                       <div class="pricing-table-price mb-24 pb-32">
                         <span class="pricing-table-price-currency h3">$</span>
                         <span class="pricing-table-price-amount h1">4k+</span>
+
                         <div style="margin-top: 10px; font-size: 0.95rem; opacity: .9;">
                           down + <strong style="color: var(--vt-green)">$70/mo</strong>
                         </div>
                       </div>
                     </div>
 
+
                     <ul class="pricing-table-features list-reset text-xs mb-56">
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>Online store setup (products, collections, checkout)</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>Performance + SEO tuned for product pages</span></li>
-
-                      <li><span class="list-icon">
-                        <svg width="16" height="12" xmlns="http://www.w3.org/2000/svg"><path d="M14.3.3L5 9.6 1.7 6.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l4 4c.2.2.4.3.7.3.3 0 .5-.1.7-.3l10-10c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0z" fill="#63B35D" fill-rule="nonzero"/></svg>
-                      </span><span>Best for shops, memberships, and online ordering</span></li>
+                      <li>✓ Online store setup</li>
+                      <li>✓ Product performance + SEO optimized</li>
+                      <li>✓ Ideal for shops & memberships</li>
                     </ul>
+
                   </div>
 
                   <div class="pricing-table-cta">
                     <a class="button button-secondary button-block" href="#contact">Ask about E-Commerce</a>
                   </div>
+
                 </div>
               </div>
 
+
             </div>
 
-            <!-- Simple contact anchor for your CTA targets -->
+
+            <!-- Anchor for CTAs -->
             <div id="contact" style="padding-top: 30px;"></div>
+
 
           </div>
         </div>
       </section>
 
-    </main>
+      </main>
 
+    <!-- =====================================================
+         FOOTER (UNCHANGED)
+    ====================================================== -->
     <footer class="site-footer">
       <div class="container">
         <div class="site-footer-inner">
-          <!-- ✅ Footer “logo” changed to text -->
+
+          <!-- Brand -->
           <div class="brand footer-brand">
-            <a href="#" class="footer-copyright" aria-label="VT Web Design home">
+            <a href="#" class="footer-copyright">
               <span class="logo-vt">VT Web Design</span>
             </a>
           </div>
 
+          <!-- Footer links -->
           <ul class="footer-links list-reset">
             <li><a href="#services">Services</a></li>
             <li><a href="#pricing">Pricing</a></li>
@@ -482,46 +617,88 @@
             <li><a href="#services">Accessibility</a></li>
           </ul>
 
+          <!-- =========================================
+              Social Links
+          ========================================= -->
           <ul class="footer-social-links list-reset">
+
+            <!-- Facebook -->
             <li>
               <a href="#" aria-label="Facebook">
                 <span class="screen-reader-text">Facebook</span>
-                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#2E7D32"/>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4
+                      1.153 0 2.144.086 2.433.124v2.821h-1.67
+                      c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z"
+                    fill="#2E7D32"/>
                 </svg>
               </a>
             </li>
+
+
+            <!-- Twitter -->
             <li>
               <a href="#" aria-label="Twitter">
                 <span class="screen-reader-text">Twitter</span>
-                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#2E7D32"/>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8
+                      -.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1
+                      -1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7
+                      -2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7
+                      0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4
+                      C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1
+                      -.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3
+                      -1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5
+                      6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z"
+                    fill="#2E7D32"/>
                 </svg>
               </a>
             </li>
+
+
+            <!-- Google -->
             <li>
               <a href="#" aria-label="Google">
                 <span class="screen-reader-text">Google</span>
-                <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#2E7D32"/>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path
+                    d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3
+                      -2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4
+                      1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1
+                      4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8
+                      0-.5 0-.8-.1-1.2H7.9z"
+                    fill="#2E7D32"/>
                 </svg>
               </a>
             </li>
+
           </ul>
 
+          <!-- Copyright -->
           <div class="footer-copyright">
             &copy; <span id="year">2026</span> VT Web Design, all rights reserved
           </div>
+
         </div>
       </div>
     </footer>
 
   </div>
 
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
   <script src="dist/js/main.min.js"></script>
   <script>
-    // keep footer year current
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelector('.nav-toggle')
+      .addEventListener('click', () => {
+        document.body.classList.toggle('is-nav-open');
+      });
   </script>
+
 </body>
 </html>
