@@ -22,6 +22,11 @@
   display: inline-block;
   color: white;
 
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+
   font-weight: 900;
   letter-spacing: 0.05em;
 
@@ -137,14 +142,36 @@
 
   /* smaller headline for phones */
   .hero-title-first {
-    font-size: 2.4rem !important;
+    display: block !important;
+    font-size: clamp(1.7rem, 8vw, 2.2rem) !important;
     margin-bottom: 12px;
+    letter-spacing: 0.02em;
+    white-space: normal;
   }
 
   /* optional subtitle */
   .hero-title-second {
     font-size: 1.6rem !important;
     margin-bottom: 32px;
+  }
+
+  /* keep paragraph + kicker inside the viewport */
+  .hero-paragraph,
+  .kicker,
+  .section-paragraph {
+    max-width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* keep the boxed-container inside the viewport on mobile */
+  .container,
+  .container-sm {
+    max-width: 100%;
   }
 }
 

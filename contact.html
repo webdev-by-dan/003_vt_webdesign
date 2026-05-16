@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- =====================================================
+       META
+  ====================================================== -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Contact | VT Web Design</title>
+
+
+  <!-- =====================================================
+       FONTS + STYLES
+  ====================================================== -->
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet" />
+  <link rel="stylesheet" href="dist/css/style.css" />
+
+</head>
+
+
+
+<body class="is-boxed has-animations page-inner">
+
+
+  <!-- =====================================================
+       GLOBAL NAV BAR
+  ====================================================== -->
+  <nav id="site-nav" class="site-nav" aria-label="Primary">
+
+    <a href="index.html" class="site-logo-text" aria-label="VT Web Design home">
+      <span class="logo-vt">VT</span>
+      <span class="logo-wd">Web Design</span>
+    </a>
+
+    <ul class="header-links list-reset m-0">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li>
+        <a class="nav-contact-cta" href="contact.html">Contact</a>
+      </li>
+    </ul>
+
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="nav-toggle__icon" aria-hidden="true"></span>
+    </button>
+
+  </nav>
+
+
+
+  <!-- =====================================================
+       PAGE WRAPPER
+  ====================================================== -->
+  <div class="body-wrap boxed-container" style="border-top-left-radius: 24px; border-top-right-radius: 24px;">
+
+    <section class="highlight-box"></section>
+
+
+
+    <!-- =====================================================
+         HEADER (COMPACT HERO)
+    ====================================================== -->
+    <header class="site-header">
+
+      <svg class="hero-waves"
+           xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 24 150 28"
+           preserveAspectRatio="none">
+
+        <defs>
+          <path id="gentle-wave"
+            d="M-160 44c30 0 58-18 88-18s58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        </defs>
+
+        <g class="parallax">
+          <use href="#gentle-wave" x="48" y="7" fill="#ffffff" opacity="1" />
+          <use href="#gentle-wave" x="48" y="5" fill="#ffffff" opacity="0.4" />
+          <use href="#gentle-wave" x="48" y="3" fill="#ffffff" opacity="0.2" />
+          <use href="#gentle-wave" x="48" y="0" fill="#ffffff" opacity="0.1" />
+        </g>
+
+      </svg>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+    <main>
+
+
+      <!-- =================================================
+           HERO
+      ================================================== -->
+      <section class="hero text-light text-center">
+
+        <div class="container-sm">
+          <div class="hero-inner">
+
+            <h1 class="hero-title h1-mobile mt-0 hero-title-first">
+              Let's talk
+            </h1>
+
+            <p class="hero-paragraph">
+              Tell me about your project — a quick note is enough to get the conversation going.
+              I usually reply within one business day.
+            </p>
+
+          </div>
+        </div>
+
+      </section>
+
+
+
+      <!-- =================================================
+           PAGE BODY — CONTACT FORM
+      ================================================== -->
+      <section class="page-body">
+        <div class="page-body-inner">
+
+          <div class="contact-card">
+            <div class="contact-grid">
+
+
+              <!-- =========================
+                   Form
+              ========================== -->
+              <form class="contact-form" action="#" method="post" novalidate>
+
+                <div class="form-row two-col">
+                  <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required autocomplete="name" />
+                  </div>
+                  <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required autocomplete="email" />
+                  </div>
+                </div>
+
+                <div class="form-row two-col">
+                  <div>
+                    <label for="organization">Organization (optional)</label>
+                    <input id="organization" name="organization" type="text" autocomplete="organization" />
+                  </div>
+                  <div>
+                    <label for="project-type">Project type</label>
+                    <select id="project-type" name="project-type">
+                      <option value="">Choose one…</option>
+                      <option>New website</option>
+                      <option>Redesign / refresh</option>
+                      <option>E-commerce store</option>
+                      <option>Ongoing care + updates</option>
+                      <option>Just exploring</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div>
+                    <label for="message">What are you hoping to build?</label>
+                    <textarea id="message" name="message" rows="6" placeholder="A few sentences about your goals, timeline, or budget is plenty." required></textarea>
+                  </div>
+                </div>
+
+                <div class="form-actions">
+                  <button class="button button-primary button-shadow" type="submit">Send message</button>
+                  <span class="form-note">No spam — just a real reply from Dan.</span>
+                </div>
+
+              </form>
+
+
+              <!-- =========================
+                   Info sidebar
+              ========================== -->
+              <aside class="contact-info">
+
+                <h3>Other ways to reach me</h3>
+
+                <p>
+                  Prefer email or a quick phone call? Either works. I'm based in Vermont
+                  and work with clients across New England.
+                </p>
+
+                <ul class="contact-info-list">
+                  <li>
+                    <div>
+                      <span class="label">Email</span>
+                      <a href="mailto:hello@vtwebdesign.com">hello@vtwebdesign.com</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <span class="label">Phone</span>
+                      <a href="tel:+18025550123">(802) 555-0123</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <span class="label">Service area</span>
+                      Vermont, New Hampshire, Maine &amp; greater New England
+                    </div>
+                  </li>
+                  <li>
+                    <div>
+                      <span class="label">Typical reply time</span>
+                      Within one business day
+                    </div>
+                  </li>
+                </ul>
+
+              </aside>
+
+
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="site-footer-inner">
+
+          <div class="brand footer-brand">
+            <a href="index.html" class="footer-copyright">
+              <span class="logo-vt">VT Web Design</span>
+            </a>
+          </div>
+
+          <ul class="footer-links list-reset">
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+          <ul class="footer-social-links list-reset">
+            <li>
+              <a href="#" aria-label="Facebook">
+                <span class="screen-reader-text">Facebook</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M6.023 16L6 9H3V6h3V4c0-2.7 1.672-4 4.08-4 1.153 0 2.144.086 2.433.124v2.821h-1.67c-1.31 0-1.563.623-1.563 1.536V6H13l-1 3H9.28v7H6.023z" fill="#2E7D32"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Twitter">
+                <span class="screen-reader-text">Twitter</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M16 3c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4C.7 7.7 1.8 9 3.3 9.3c-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H0c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4C15 4.3 15.6 3.7 16 3z" fill="#2E7D32"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="Google">
+                <span class="screen-reader-text">Google</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#2E7D32"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer-copyright">
+            &copy; <span id="year">2026</span> VT Web Design, all rights reserved
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <!-- =====================================================
+       SCRIPTS
+  ====================================================== -->
+  <script src="dist/js/main.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelector('.nav-toggle')
+      .addEventListener('click', () => {
+        document.body.classList.toggle('is-nav-open');
+      });
+  </script>
+
+</body>
+</html>

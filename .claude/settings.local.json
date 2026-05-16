@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($tools = @\\('sass', 'npx', 'node', 'npm'\\); foreach \\($t in $tools\\) { $cmd = Get-Command $t -ErrorAction SilentlyContinue; if \\($cmd\\) { \"$t -> $\\($cmd.Source\\)\" } else { \"$t -> NOT FOUND\" } })",
+      "PowerShell(sass src/scss/style.scss dist/css/style.css --style=expanded)",
+      "PowerShell(node .screenshots\\\\shot.js r3 2>&1)",
+      "PowerShell(node .screenshots\\\\shot.js r4 2>&1)"
+    ]
+  }
+}

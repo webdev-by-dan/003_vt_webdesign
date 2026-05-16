@@ -24,6 +24,7 @@
 html,
 body {
   background: var(--page-bg);
+  overflow-x: hidden;
 }
 
 /* remove any white strip behind nav */

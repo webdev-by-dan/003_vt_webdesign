@@ -1,0 +1,396 @@
+/* ======================================================
+   INNER PAGE LAYOUT
+   Shared styles for Contact + Portfolio pages
+====================================================== */
+
+
+/* ======================================================
+   COMPACT HERO (no full-height banner image)
+====================================================== */
+
+.page-inner .site-header {
+  padding: 24px 0 0;
+}
+
+.page-inner .site-header::before {
+  height: 360px;
+}
+
+@media (min-width: 768px) {
+  .page-inner .site-header::before {
+    height: 420px;
+  }
+}
+
+.page-inner .hero {
+  min-height: 336px;
+  padding-top: 64px;
+  padding-bottom: 90px;
+}
+
+@media (min-width: 768px) {
+  .page-inner .hero {
+    min-height: 396px;
+  }
+}
+
+.page-inner .hero-title-first {
+  font-size: clamp(2.2rem, 5.5vw, 3.4rem) !important;
+  letter-spacing: 0.02em;
+  margin-bottom: 8px;
+}
+
+.page-inner .hero-paragraph {
+  max-width: 640px;
+  margin: 0 auto 8px;
+}
+
+.page-inner .hero-waves {
+  top: 290px;
+}
+
+@media (min-width: 768px) {
+  .page-inner .hero-waves {
+    top: 350px;
+  }
+}
+
+
+/* ======================================================
+   PAGE BODY SECTION (starts cleanly under the green hero)
+====================================================== */
+
+.page-body {
+  padding: 56px 0 96px;
+}
+
+.page-body-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.page-body-inner--wide {
+  max-width: 1240px;
+}
+
+
+/* ======================================================
+   CONTACT FORM
+====================================================== */
+
+.contact-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .06);
+
+  padding: 32px;
+}
+
+@media (min-width: 768px) {
+  .contact-card {
+    padding: 48px;
+  }
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 56px;
+  }
+}
+
+.contact-info h3 {
+  margin: 0 0 12px;
+  color: var(--vt-green);
+}
+
+.contact-info p {
+  color: #4b5563;
+  margin: 0 0 18px;
+  line-height: 1.55;
+}
+
+.contact-info-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  padding: 12px 0;
+  border-top: 1px solid rgba(0, 0, 0, .06);
+
+  font-size: .95rem;
+  color: #1f2937;
+}
+
+.contact-info-list li:first-child {
+  border-top: 0;
+}
+
+.contact-info-list .label {
+  display: block;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 600px) {
+  .contact-form .form-row.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form label {
+  display: block;
+  font-size: .85rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  font: inherit;
+  font-size: .95rem;
+
+  padding: 12px 14px;
+
+  background: #fff;
+  color: #1f2937;
+
+  border: 1px solid rgba(0, 0, 0, .12);
+  border-radius: 10px;
+
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: 0;
+  border-color: var(--vt-green);
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, .15);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.contact-form .form-actions {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.contact-form .form-note {
+  font-size: .8rem;
+  color: #6b7280;
+}
+
+
+/* ======================================================
+   PORTFOLIO GRID
+====================================================== */
+
+.portfolio-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 48px;
+  color: #4b5563;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 700px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.portfolio-card {
+  display: flex;
+  flex-direction: column;
+
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .06);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, .12);
+}
+
+.portfolio-card__media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background:
+    linear-gradient(135deg, rgba(46, 125, 50, .85), rgba(0, 74, 10, .85));
+  overflow: hidden;
+}
+
+.portfolio-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+
+.portfolio-card:hover .portfolio-card__media img {
+  transform: scale(1.04);
+}
+
+.portfolio-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, .25) 0%, rgba(0, 0, 0, 0) 45%);
+  pointer-events: none;
+}
+
+.portfolio-card__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, .92);
+  color: var(--vt-green);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+}
+
+.portfolio-card__body {
+  padding: 20px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.portfolio-card__title {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+  color: #1f2937;
+}
+
+.portfolio-card__desc {
+  margin: 0 0 14px;
+  font-size: .92rem;
+  line-height: 1.5;
+  color: #4b5563;
+  flex: 1;
+}
+
+.portfolio-card__meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.portfolio-card__meta span {
+  font-size: .72rem;
+  font-weight: 600;
+  color: #4b5563;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(46, 125, 50, .08);
+}
+
+
+/* ======================================================
+   PORTFOLIO CTA STRIP
+====================================================== */
+
+.portfolio-cta {
+  position: relative;
+  isolation: isolate;
+
+  margin-top: 72px;
+  padding: 56px 32px;
+
+  text-align: center;
+  color: #fff;
+
+  background:
+    linear-gradient(65deg, rgba(46, 125, 50, .88) -25%, rgba(0, 147, 124, .82) 100%),
+    url("https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80");
+  background-size: cover;
+  background-position: center;
+
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+
+.portfolio-cta h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .25);
+}
+
+.portfolio-cta p {
+  margin: 0 0 22px;
+  opacity: .95;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+
+.portfolio-cta .button {
+  background: #fff;
+  color: var(--vt-green) !important;
+}
+
+.portfolio-cta .button:hover {
+  background: #f3f4f6;
+}
