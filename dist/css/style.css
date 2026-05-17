@@ -1540,7 +1540,7 @@ body {
   box-sizing: border-box;
   background: var(--ds-blue);
   color: #fff;
-  border: 1.5px solid #0F172A;
+  border: 1px solid #0F172A;
   border-radius: 3px;
   line-height: 1;
 }
@@ -1971,12 +1971,12 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.8em;
+  height: 1.8em;
   box-sizing: border-box;
   background: var(--ds-blue);
   color: #fff;
-  border: 0.08em solid #0F172A;
+  border: 0.05em solid #0F172A;
   border-radius: 3px;
   line-height: 1;
   letter-spacing: 0.02em;
