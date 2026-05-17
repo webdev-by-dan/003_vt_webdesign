@@ -5,7 +5,13 @@
       "PowerShell(sass src/scss/style.scss dist/css/style.css --style=expanded)",
       "PowerShell(node .screenshots\\\\shot.js r3 2>&1)",
       "PowerShell(node .screenshots\\\\shot.js r4 2>&1)",
-      "Bash(node screenshots.js)"
+      "Bash(node screenshots.js)",
+      "Bash(grep -iE \"^\\(sharp|jimp|imagemin\\)$\")",
+      "Bash(where magick *)",
+      "Bash(where convert *)",
+      "Bash(where ffmpeg *)",
+      "Bash(npm install *)",
+      "Bash(node convert-images.js)"
     ]
   }
 }

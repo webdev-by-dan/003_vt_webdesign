@@ -1,1 +1,1 @@
-﻿{"name":"DST_Consulting","private":true}
+{"name":"DST_Consulting","private":true,"devDependencies":{"puppeteer-core":"^25.0.2","sharp":"^0.34.5"}}
