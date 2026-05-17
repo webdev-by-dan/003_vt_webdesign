@@ -1941,18 +1941,22 @@ body {
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
 }
 
-/* "DS" sits in a blue badge; "Consulting" picks up the orange accent */
+/* "DS" sits in a blue square */
 .hero-title-first .hero-title__ds {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  height: 1.4em;
   background: var(--ds-blue);
   color: #fff;
-  padding: 0.05em 0.2em;
-  border-radius: 8px;
+  border-radius: 6px;
   line-height: 1;
   letter-spacing: 0.02em;
+  vertical-align: middle;
 }
 .hero-title-first .hero-title__consulting {
-  color: var(--ds-orange);
+  color: #fff;
 }
 
 /* Secondary headline (optional subtitle) */
