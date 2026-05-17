@@ -5,7 +5,11 @@
       "PowerShell(sass src/scss/style.scss dist/css/style.css --style=expanded)",
       "PowerShell(node .screenshots\\\\shot.js r3 2>&1)",
       "PowerShell(node .screenshots\\\\shot.js r4 2>&1)",
-      "Bash(node screenshots.js)"
+      "Bash(node screenshots.js)",
+      "Bash(git checkout *)",
+      "Bash(git revert *)",
+      "Bash(git stash *)",
+      "Bash(git add *)"
     ]
   }
 }
