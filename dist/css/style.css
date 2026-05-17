@@ -1535,11 +1535,13 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.7em;
+  height: 1.7em;
+  box-sizing: border-box;
   background: var(--ds-blue);
   color: #fff;
-  border-radius: 0;
+  border: 1.5px solid #0F172A;
+  border-radius: 3px;
   line-height: 1;
 }
 
@@ -1969,11 +1971,13 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: 1.3em;
-  height: 1.3em;
+  width: 1.5em;
+  height: 1.5em;
+  box-sizing: border-box;
   background: var(--ds-blue);
   color: #fff;
-  border-radius: 0;
+  border: 0.08em solid #0F172A;
+  border-radius: 3px;
   line-height: 1;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -2643,26 +2647,26 @@ main {
 
 /* Portfolio (page-inner without project-page) — shorter header than projects */
 body.page-inner:not(.project-page) .site-header::before {
-  height: 300px;
+  height: 330px;
 }
 @media (min-width: 768px) {
   body.page-inner:not(.project-page) .site-header::before {
-    height: 360px;
+    height: 400px;
   }
 }
 body.page-inner:not(.project-page) .hero {
-  min-height: 240px;
-  padding-top: 56px;
-  padding-bottom: 64px;
+  min-height: 280px;
+  padding-top: 64px;
+  padding-bottom: 72px;
 }
 /* Wave bottom edge tracks the shrunken navy */
 body.page-inner:not(.project-page) .hero-waves {
-  top: 240px;
+  top: 270px;
   height: 60px;
 }
 @media (min-width: 768px) {
   body.page-inner:not(.project-page) .hero-waves {
-    top: 300px;
+    top: 340px;
   }
 }
 
