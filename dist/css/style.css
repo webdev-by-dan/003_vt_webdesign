@@ -1590,7 +1590,10 @@ body {
 }
 
 .nav-contact-cta:hover {
-  filter: brightness(1.08);
+  background: #fff;
+  color: var(--ds-blue) !important;
+  box-shadow: inset 0 0 0 1.5px var(--ds-blue);
+  filter: none;
   transform: translateY(-1px);
 }
 
@@ -1938,6 +1941,20 @@ body {
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
 }
 
+/* "DS" sits in a blue badge; "Consulting" picks up the orange accent */
+.hero-title-first .hero-title__ds {
+  display: inline-block;
+  background: var(--ds-blue);
+  color: #fff;
+  padding: 0.05em 0.2em;
+  border-radius: 8px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.hero-title-first .hero-title__consulting {
+  color: var(--ds-orange);
+}
+
 /* Secondary headline (optional subtitle) */
 .hero-title {
   font-size: clamp(1.8rem, 5.5vw, 4rem);
@@ -2035,6 +2052,13 @@ body {
   }
 }
 
+/* Hide the grey divider that sits between the hero and the clients section on desktop/tablet */
+@media (min-width: 641px) {
+  .clients .has-top-divider::before {
+    display: none;
+  }
+}
+
 /* ======================================================
    MOBILE STYLES
    (< medium breakpoint)
@@ -2048,6 +2072,11 @@ body {
   /* button stack spacing tweak */
   .B1 {
     margin-bottom: 4px !important;
+  }
+  /* slimmer hero buttons so they sit at the same level as the paragraph */
+  .hero-cta .button {
+    padding: 11px 22px;
+    font-size: 12px;
   }
   /* smaller headline for phones */
   .hero-title-first {
