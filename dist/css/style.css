@@ -1985,6 +1985,10 @@ body {
 }
 .hero-title-first .hero-title__consulting {
   color: #fff;
+  text-decoration: underline;
+  text-decoration-color: var(--ds-orange);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.12em;
 }
 
 /* Secondary headline (optional subtitle) */
