@@ -9,7 +9,14 @@
       "Bash(git checkout *)",
       "Bash(git revert *)",
       "Bash(git stash *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(where magick *)",
+      "Bash(where convert *)",
+      "Bash(where npx *)",
+      "Bash(where ffmpeg *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $files = @\\('dist\\\\img\\\\Image-Dan.jpg','dist\\\\img\\\\Illustration1.jpg','dist\\\\img\\\\Illustration2.jpg'\\); foreach \\($f in $files\\) { $img = [System.Drawing.Image]::FromFile\\(\\(Resolve-Path $f\\)\\); Write-Output \\(\"{0}  {1}x{2}\" -f $f, $img.Width, $img.Height\\); $img.Dispose\\(\\) })",
+      "PowerShell($cwd = Get-Location; Write-Host \"CWD: $cwd\"; Write-Host \"Relative test:\" \\(Test-Path 'src\\\\img\\\\Image-Dan.jpg'\\); Write-Host \"Absolute test:\" \\(Test-Path 'C:\\\\Users\\\\scheu\\\\Desktop\\\\Webdev by Dan\\\\003_vt-webdesign\\\\003_vt_webdesign\\\\src\\\\img\\\\Image-Dan.jpg'\\))",
+      "PowerShell(cmd /c dir \"src\\\\img\" /a)"
     ]
   }
 }

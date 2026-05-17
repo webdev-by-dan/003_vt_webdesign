@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Rosica — Thought Leadership Matrix | DS Tech Consulting</title>
+  <title>Rosica — Thought Leadership Matrix | DS Consulting</title>
 
   <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet" />
   <link rel="stylesheet" href="dist/css/style.css" />
@@ -14,21 +14,9 @@
 
 <body class="is-boxed has-animations page-inner project-page">
 
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-    <a href="index.html" class="site-logo-text" aria-label="DS Tech Consulting home">
-      <span class="logo-vt">DS</span>
-      <span class="logo-tech">Tech</span>
-      <span class="logo-wd">Consulting</span>
-    </a>
-    <ul class="header-links list-reset m-0">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a class="nav-contact-cta" href="contact.html">Contact</a></li>
-    </ul>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="nav-toggle__icon" aria-hidden="true"></span>
-    </button>
-  </nav>
+  <!-- GLOBAL NAV BAR — loaded from partials/nav.html -->
+  <div id="site-nav-mount"></div>
+  <script src="partials/nav.js"></script>
 
 
   <div class="body-wrap boxed-container" style="border-top-left-radius: 24px; border-top-right-radius: 24px;">
@@ -144,7 +132,7 @@
         <div class="site-footer-inner">
           <div class="brand footer-brand">
             <a href="index.html" class="footer-copyright">
-              <span class="logo-vt">DS Tech Consulting</span>
+              <span class="logo-vt">DS</span> <span class="logo-tech">Consulting</span>
             </a>
           </div>
           <ul class="footer-links list-reset">
@@ -163,7 +151,7 @@
               <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M7.9 7v2.4H12c-.2 1-1.2 3-4 3-2.4 0-4.3-2-4.3-4.4 0-2.4 2-4.4 4.3-4.4 1.4 0 2.3.6 2.8 1.1l1.9-1.8C11.5 1.7 9.9 1 8 1 4.1 1 1 4.1 1 8s3.1 7 7 7c4 0 6.7-2.8 6.7-6.8 0-.5 0-.8-.1-1.2H7.9z" fill="#1E40AF"/></svg>
             </a></li>
           </ul>
-          <div class="footer-copyright">&copy; <span id="year">2026</span> DS Tech Consulting, all rights reserved</div>
+          <div class="footer-copyright">&copy; <span id="year">2026</span> DS Consulting, all rights reserved</div>
         </div>
       </div>
     </footer>
@@ -174,9 +162,6 @@
   <script src="dist/js/main.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelector('.nav-toggle').addEventListener('click', () => {
-      document.body.classList.toggle('is-nav-open');
-    });
   </script>
 </body>
 </html>

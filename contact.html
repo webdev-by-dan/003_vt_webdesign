@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Contact | DS Tech Consulting</title>
+  <title>Contact | DS Consulting</title>
 
 
   <!-- =====================================================
@@ -26,33 +26,10 @@
 
 
   <!-- =====================================================
-       GLOBAL NAV BAR
+       GLOBAL NAV BAR — loaded from partials/nav.html
   ====================================================== -->
-  <nav id="site-nav" class="site-nav" aria-label="Primary">
-
-    <a href="index.html" class="site-logo-text" aria-label="DS Tech Consulting home">
-      <span class="logo-vt">DS</span>
-      <span class="logo-tech">Tech</span>
-      <span class="logo-wd">Consulting</span>
-    </a>
-
-    <ul class="header-links list-reset m-0">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li>
-        <a class="nav-contact-cta" href="contact.html">Contact</a>
-      </li>
-    </ul>
-
-    <button
-      class="nav-toggle"
-      type="button"
-      aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="nav-toggle__icon" aria-hidden="true"></span>
-    </button>
-
-  </nav>
+  <div id="site-nav-mount"></div>
+  <script src="partials/nav.js"></script>
 
 
 
@@ -114,7 +91,7 @@
               />
               <div class="cs-profile__text">
                 <strong>Dan Scheuermann</strong>
-                <span>Founder · DS Tech Consulting</span>
+                <span>Founder · DS Consulting</span>
               </div>
               <span class="cs-profile__status" title="Available for new projects">
                 <span class="cs-profile__pulse" aria-hidden="true"></span>
@@ -203,7 +180,7 @@
 
           <div class="brand footer-brand">
             <a href="index.html" class="footer-copyright">
-              <span class="logo-vt">DS Tech Consulting</span>
+              <span class="logo-vt">DS</span> <span class="logo-tech">Consulting</span>
             </a>
           </div>
 
@@ -241,7 +218,7 @@
           </ul>
 
           <div class="footer-copyright">
-            &copy; <span id="year">2026</span> DS Tech Consulting, all rights reserved
+            &copy; <span id="year">2026</span> DS Consulting, all rights reserved
           </div>
 
         </div>
@@ -257,11 +234,6 @@
   <script src="dist/js/main.min.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    document.querySelector('.nav-toggle')
-      .addEventListener('click', () => {
-        document.body.classList.toggle('is-nav-open');
-      });
   </script>
 
 </body>
