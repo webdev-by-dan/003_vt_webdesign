@@ -1711,7 +1711,7 @@ body {
     to   { opacity: 1; }
   }
 
-  body.is-nav-open .header-links a:not(.button) {
+  body.is-nav-open .header-links a:not(.button):not(.nav-contact-cta) {
     width: 100%;
     height: auto;
     min-height: 52px;
@@ -1726,21 +1726,22 @@ body {
     transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease;
   }
 
-  body.is-nav-open .header-links a:not(.button):hover,
-  body.is-nav-open .header-links a:not(.button):focus {
+  body.is-nav-open .header-links a:not(.button):not(.nav-contact-cta):hover,
+  body.is-nav-open .header-links a:not(.button):not(.nav-contact-cta):focus {
     background: rgba(30, 64, 175, 0.05);
     color: var(--ds-blue);
     padding-left: 30px;
   }
 
   /* CTA inside the dropdown — full-width filled button */
-  body.is-nav-open .nav-contact-cta {
+  body.is-nav-open .header-links a.nav-contact-cta {
     width: calc(100% - 32px);
-    margin: 10px 16px 4px;
+    margin: 14px 16px 6px;
     height: 48px;
     border-radius: 12px;
     justify-content: center;
     font-size: 0.95rem;
+    color: #fff !important;
     background: var(--ds-blue);
     box-shadow: 0 8px 20px rgba(30, 64, 175, 0.28);
   }
@@ -1796,6 +1797,13 @@ body {
   z-index: 0;
 }
 
+@media (max-width: 640px) {
+  /* Mobile: navy stretches so the wave bottom lines up with the dots */
+  .site-header::before {
+    height: 540px;
+  }
+}
+
 @media (min-width: 768px) {
   .site-header::before {
     height: 720px;
@@ -1823,6 +1831,19 @@ body {
   height: 70px;
   z-index: 2;
   pointer-events: none;
+}
+
+/* Mobile homepage: pull the wave up so its bottom sits at the slider dots */
+@media (max-width: 640px) {
+  .hero-waves {
+    top: 480px;
+    height: 60px;
+  }
+
+  /* Hide the "Helping local teams unlock" kicker on mobile */
+  .clients {
+    display: none;
+  }
 }
 
 /* ======================================================
@@ -1984,6 +2005,58 @@ body {
 /* active image fades in */
 .hero-slider img.is-active {
   opacity: 1;
+}
+
+/* ======================================================
+   HERO SLIDER DOTS
+====================================================== */
+.hero-slider__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 18px auto 0;
+  position: relative;
+  z-index: 3;
+}
+
+.hero-slider__dot {
+  appearance: none;
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.32);
+  cursor: pointer;
+  transition: background 0.2s ease, width 0.2s ease, transform 0.15s ease;
+}
+
+.hero-slider__dot:hover {
+  background: rgba(255, 255, 255, 0.55);
+  transform: scale(1.15);
+}
+
+.hero-slider__dot.is-active {
+  background: #fff;
+  width: 22px;
+  border-radius: 999px;
+}
+
+/* When the slider is on a white area (mobile after navy ends), dots adapt */
+@media (max-width: 640px) {
+  .hero-slider__dots {
+    margin-top: 14px;
+  }
+  .hero-slider__dot {
+    background: rgba(15, 23, 42, 0.25);
+  }
+  .hero-slider__dot:hover {
+    background: rgba(15, 23, 42, 0.55);
+  }
+  .hero-slider__dot.is-active {
+    background: var(--ds-blue);
+  }
 }
 
 /* ======================================================
@@ -2509,6 +2582,8 @@ main {
 
 .page-inner .site-header::before {
   height: 410px;
+  /* Uniform navy — no dark bottom strip on inner pages */
+  background-image: linear-gradient(to bottom, rgba(15, 23, 80, 0.92), rgba(15, 23, 80, 0.92)), url("../img/SVG-Banner1.jpg");
 }
 
 @media (min-width: 768px) {
@@ -2539,12 +2614,12 @@ main {
 }
 
 .page-inner .hero-waves {
-  top: 344px;
+  top: 352px;
 }
 
 @media (min-width: 768px) {
   .page-inner .hero-waves {
-    top: 404px;
+    top: 408px;
   }
 }
 /* ======================================================
@@ -2593,9 +2668,36 @@ main {
 
 /* On laptops+ make the section fill the viewport so the footer
    sits just below the fold. Columns vertically center inside it. */
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .contact-section {
     min-height: calc(100vh - 180px);
+  }
+}
+
+/* Mobile contact form — strip widgets, give the form full width */
+@media (max-width: 768px) {
+  .contact-section .cs-eyebrow,
+  .contact-section .cs-profile {
+    display: none !important;
+  }
+
+  /* Edge-to-edge section so the form fills the container width */
+  .contact-section {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .contact-section__inner {
+    padding: 24px 12px 32px;
+    gap: 18px;
+  }
+
+  /* Form takes the full inner width and keeps its rounded edges */
+  .cs-form {
+    width: 100%;
+    margin: 0;
+    border-radius: 18px;
+    padding: 24px 20px;
   }
 }
 
@@ -2655,7 +2757,7 @@ main {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .contact-section__inner {
     grid-template-columns: 1.05fr 1fr;
     gap: 44px;
@@ -2871,7 +2973,7 @@ main {
 
 /* On laptops+ stretch the form to fill the row height and
    let the message field grow into the extra space. */
-@media (min-width: 1024px) {
+@media (min-width: 1100px) {
   .cs-form {
     align-self: stretch;
     display: flex;
