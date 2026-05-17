@@ -1960,21 +1960,7 @@ body {
   border-radius: 4px 4px 0 0;
   /* shadow overlay layer */
 }
-.hero-media::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  box-shadow: 0 16px 48px #E3E7EB;
-  /* Edge fallback */
-}
-@supports (-ms-ime-align: auto) {
-  .hero-media::before {
-    box-shadow: 0 16px 48px rgba(32, 43, 54, 0.12);
-  }
-}
-.hero-media::before {
-  mix-blend-mode: multiply;
-}
+/* (former .hero-media::before drop shadow removed — slider now owns its own short shadow) */
 
 /* ======================================================
    IMAGE SLIDER
@@ -1987,7 +1973,7 @@ body {
   aspect-ratio: 16/9;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 
 /* slider images stacked */
@@ -2027,35 +2013,25 @@ body {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.32);
+  background: rgba(15, 23, 42, 0.25);
   cursor: pointer;
   transition: background 0.2s ease, width 0.2s ease, transform 0.15s ease;
 }
 
 .hero-slider__dot:hover {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(15, 23, 42, 0.55);
   transform: scale(1.15);
 }
 
 .hero-slider__dot.is-active {
-  background: #fff;
+  background: var(--ds-blue);
   width: 22px;
   border-radius: 999px;
 }
 
-/* When the slider is on a white area (mobile after navy ends), dots adapt */
 @media (max-width: 640px) {
   .hero-slider__dots {
     margin-top: 14px;
-  }
-  .hero-slider__dot {
-    background: rgba(15, 23, 42, 0.25);
-  }
-  .hero-slider__dot:hover {
-    background: rgba(15, 23, 42, 0.55);
-  }
-  .hero-slider__dot.is-active {
-    background: var(--ds-blue);
   }
 }
 
@@ -2067,6 +2043,7 @@ body {
   /* tighten vertical spacing */
   .hero {
     padding-top: 20px;
+    padding-bottom: 32px;
   }
   /* button stack spacing tweak */
   .B1 {
