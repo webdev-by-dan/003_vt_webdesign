@@ -2114,11 +2114,12 @@ body {
     padding: 9px 18px;
     font-size: 12px;
     line-height: 14px;
+    height: auto;
   }
   /* keep the slider's mobile height proportional to the desktop look */
   .hero-media {
     height: auto;
-    aspect-ratio: 3 / 1;
+    aspect-ratio: 16 / 9;
   }
   /* smaller headline for phones */
   .hero-title-first {
