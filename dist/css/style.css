@@ -1516,7 +1516,7 @@ body {
 ====================================================== */
 .site-logo-text {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.4rem;
   font-size: 1rem;
   font-weight: 800;
@@ -1528,6 +1528,19 @@ body {
 .logo-vt {
   color: var(--ds-blue);
   font-weight: 900;
+}
+
+/* Nav-only: "DS" sits inside a blue square */
+.site-nav .logo-vt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5em;
+  height: 1.5em;
+  background: var(--ds-blue);
+  color: #fff;
+  border-radius: 0;
+  line-height: 1;
 }
 
 .logo-tech {
@@ -1941,19 +1954,30 @@ body {
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.25));
 }
 
+/* When the hero h1 contains the DS badge, lay it out as inline-flex
+   so the badge and "Consulting" share a true vertical center.
+   !important overrides the mobile `display: block` override below. */
+.hero-title-first:has(.hero-title__ds) {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.18em;
+}
+
 /* "DS" sits in a blue square */
 .hero-title-first .hero-title__ds {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.4em;
-  height: 1.4em;
+  flex-shrink: 0;
+  width: 1.3em;
+  height: 1.3em;
   background: var(--ds-blue);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 0;
   line-height: 1;
   letter-spacing: 0.02em;
-  vertical-align: middle;
+  white-space: nowrap;
+  word-break: normal;
 }
 .hero-title-first .hero-title__consulting {
   color: #fff;
@@ -2079,8 +2103,14 @@ body {
   }
   /* slimmer hero buttons so they sit at the same level as the paragraph */
   .hero-cta .button {
-    padding: 11px 22px;
+    padding: 9px 18px;
     font-size: 12px;
+    line-height: 14px;
+  }
+  /* keep the slider's mobile height proportional to the desktop look */
+  .hero-media {
+    height: auto;
+    aspect-ratio: 3 / 1;
   }
   /* smaller headline for phones */
   .hero-title-first {
@@ -2089,6 +2119,10 @@ body {
     margin-bottom: 12px;
     letter-spacing: 0.02em;
     white-space: normal;
+  }
+  /* homepage title — bump size on mobile since it's just "DS Consulting" */
+  .hero-title-first:has(.hero-title__ds) {
+    font-size: clamp(2.2rem, 10vw, 2.8rem) !important;
   }
   /* optional subtitle */
   .hero-title-second {
@@ -2605,6 +2639,31 @@ main {
   min-height: 384px;
   padding-top: 80px;
   padding-bottom: 100px;
+}
+
+/* Portfolio (page-inner without project-page) — shorter header than projects */
+body.page-inner:not(.project-page) .site-header::before {
+  height: 300px;
+}
+@media (min-width: 768px) {
+  body.page-inner:not(.project-page) .site-header::before {
+    height: 360px;
+  }
+}
+body.page-inner:not(.project-page) .hero {
+  min-height: 240px;
+  padding-top: 56px;
+  padding-bottom: 64px;
+}
+/* Wave bottom edge tracks the shrunken navy */
+body.page-inner:not(.project-page) .hero-waves {
+  top: 240px;
+  height: 60px;
+}
+@media (min-width: 768px) {
+  body.page-inner:not(.project-page) .hero-waves {
+    top: 300px;
+  }
 }
 
 @media (min-width: 768px) {
